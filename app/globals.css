@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Garamond Pro (Headings) */
+@font-face {
+  font-family: "GaramondPro";
+  src: url("/fonts/GaramondPro-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Rain Sans Variable (Body) */
+@font-face {
+  font-family: "RainSans";
+  src: url("/fonts/RainSans-Variable.otf") format("opentype");
+  font-weight: 100 900; /* variable font range */
+  font-style: normal;
+}
+
+
+body { background: black; color: white; }
+
+.feature-card {
+  @apply rounded-3xl p-10 border border-black/10 shadow-sm transition-all duration-300 
+         hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20 cursor-pointer;
+}
+
+.feature-icon {
+  @apply w-full h-14 rounded-2xl bg-white/60 border border-gray-300 flex items-center 
+         justify-center text-2xl mb-6;
+}
+
+.feature-title {
+  @apply text-2xl font-semibold mb-4;
+}
+
+.feature-text {
+  @apply text-gray-700 leading-relaxed;
+}
+
+.feature-pill-row {
+  @apply flex flex-wrap gap-2 mt-6;
+}
+
+.pill {
+  @apply px-4 py-1.5 rounded-xl border border-gray-300 bg-white text-sm text-gray-700 
+         transition-all duration-200 hover:border-gray-400 hover:shadow-md 
+         hover:-translate-y-0.5 whitespace-nowrap;
+}
+
+@keyframes float {
+  0% { transform: translate(0px, 0px); }
+  50% { transform: translate(25px, -25px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+.animate-pulse {
+  animation: float 8s ease-in-out infinite;
+}
+@keyframes wave {
+  0% { transform: translate(-100px, 0); }
+  50% { transform: translate(100px, -60px); }
+  100% { transform: translate(-100px, 0); }
+}
+
+@keyframes wave2 {
+  0% { transform: translate(100px, 40px); }
+  50% { transform: translate(-80px, -60px); }
+  100% { transform: translate(100px, 40px); }
+}
+
+.animate-wave {
+  animation: wave 12s ease-in-out infinite;
+}
+
+.animate-wave2 {
+  animation: wave2 14s ease-in-out infinite;
+}
