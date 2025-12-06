@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { HTMLMotionProps } from "framer-motion";
 
 export default function Testimonials() {
   const data = [
@@ -36,6 +37,7 @@ export default function Testimonials() {
         <div className="flex gap-8 overflow-x-auto no-scrollbar pb-4">
           {data.map((item, idx) => (
             <motion.div
+              {...({} as HTMLMotionProps<"div">)}
               key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -49,7 +51,7 @@ export default function Testimonials() {
                 <p className="text-sm text-gray-300">{item.role}</p>
               </div>
 
-              {/* Testimonial Text */}
+              {/* Testimonial */}
               <p className="text-gray-200 leading-relaxed font-rainsans">
                 {item.text}
               </p>
