@@ -12,7 +12,7 @@ export default function JoinWaitlist() {
     setStatus("Submitting...");
 
     try {
-      await fetch("YOUR_GOOGLE_SCRIPT_URL_HERE", {
+      await fetch("https://script.google.com/macros/s/AKfycbwFKtKZ-hl5crltvQu2O_YGHndtpJ6rPF9oaItSQF1bqxmnyslYhWTAqEn52YTsrZxR/execERE", {
         method: "POST",
         mode: "no-cors",
         body: JSON.stringify({ name, email }),
