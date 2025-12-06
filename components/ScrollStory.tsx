@@ -3,8 +3,9 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
-const MotionDiv = motion<HTMLDivElement>("div");
-const MotionP = motion<HTMLParagraphElement>("p");
+// Fix: force MotionDiv to accept any children
+const MotionDiv: any = motion.div;
+const MotionP: any = motion.p;
 
 export default function ScrollStory() {
   const sentences = [
@@ -22,9 +23,10 @@ export default function ScrollStory() {
   const [pos, setPos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % sentences.length);
-    }, 3500);
+    const interval = setInterval(
+      () => setCurrent((prev) => (prev + 1) % sentences.length),
+      3500
+    );
     return () => clearInterval(interval);
   }, []);
 
@@ -32,7 +34,7 @@ export default function ScrollStory() {
     const rect = e.currentTarget.getBoundingClientRect();
     setPos({
       x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
+      y: e.clientY - rect.top
     });
   };
 
@@ -41,22 +43,27 @@ export default function ScrollStory() {
       className="relative w-full py-20 bg-black overflow-hidden"
       onMouseMove={handleMouseMove}
     >
-      {/* CURSOR GLOW */}
+      {/* Cursor Glow */}
       <MotionDiv
         className="pointer-events-none absolute rounded-full"
         style={{
           width: 350,
           height: 350,
           top: pos.y - 175,
-          left: pos.x - 175,
+          left: pos.x - 175
         }}
-        animate={{ x: pos.x - 175, y: pos.y - 175 }}
+        animate={{
+          x: pos.x - 175,
+          y: pos.y - 175
+        }}
         transition={{ type: "spring", stiffness: 150, damping: 20 }}
       >
-        <div className="w-full h-full bg-blue-400/20 blur-3xl rounded-full" />
+        <>
+          <div className="w-full h-full bg-blue-400/20 blur-3xl rounded-full" />
+        </>
       </MotionDiv>
 
-      {/* TEXT */}
+      {/* Text */}
       <div className="relative z-10 h-[140px] flex items-center justify-center max-w-4xl mx-auto px-6 text-center overflow-hidden">
         <MotionP
           key={current}
