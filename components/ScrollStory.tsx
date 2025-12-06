@@ -1,9 +1,12 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
-export default function AutoStory() {
+const MotionDiv = motion<HTMLDivElement>("div");
+const MotionP = motion<HTMLParagraphElement>("p");
+
+export default function ScrollStory() {
   const sentences = [
     "A career is only as strong as the story it tells.",
     "And behind every successful application, there is a precise alignment of skills, intent, and opportunity.",
@@ -38,8 +41,8 @@ export default function AutoStory() {
       className="relative w-full py-20 bg-black overflow-hidden"
       onMouseMove={handleMouseMove}
     >
-      {/* CURSOR LIGHT GLOW */}
-      <motion.div
+      {/* CURSOR GLOW */}
+      <MotionDiv
         className="pointer-events-none absolute rounded-full"
         style={{
           width: 350,
@@ -51,22 +54,20 @@ export default function AutoStory() {
         transition={{ type: "spring", stiffness: 150, damping: 20 }}
       >
         <div className="w-full h-full bg-blue-400/20 blur-3xl rounded-full" />
-      </motion.div>
+      </MotionDiv>
 
-      {/* TEXT BLOCK */}
+      {/* TEXT */}
       <div className="relative z-10 h-[140px] flex items-center justify-center max-w-4xl mx-auto px-6 text-center overflow-hidden">
-        <AnimatePresence mode="wait">
-          <motion.p
-            key={current}
-            className="text-white text-2xl md:text-3xl leading-snug font-body font-light"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.6 }}
-          >
-            {sentences[current]}
-          </motion.p>
-        </AnimatePresence>
+        <MotionP
+          key={current}
+          className="text-white text-2xl md:text-3xl leading-snug font-light"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -15 }}
+          transition={{ duration: 0.6 }}
+        >
+          {sentences[current]}
+        </MotionP>
       </div>
     </section>
   );
