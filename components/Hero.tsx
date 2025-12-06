@@ -49,9 +49,11 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.6 }}
-            className="text-6xl md:text-7xl font-heading text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-pink-400"
           >
-            {rotatingWords[index]}
+            {/* actual styled text inside normal span */}
+            <span className="text-6xl md:text-7xl font-heading text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-pink-400">
+              {rotatingWords[index]}
+            </span>
           </motion.span>
         </div>
 
