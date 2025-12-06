@@ -59,7 +59,7 @@ export default function Hero() {
 
         {/* CTA */}
         <button className="mt-10 px-10 py-4 bg-white text-black rounded-full text-xl font-semibold hover:scale-105 transition font-body">
-          Get Started
+          Join the Waitlist
         </button>
       </div>
     </section>
