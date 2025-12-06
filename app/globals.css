@@ -77,3 +77,10 @@ body { background: black; color: white; }
 .animate-wave2 {
   animation: wave2 14s ease-in-out infinite;
 }
+
+.font-garamond {
+  font-family: "GaramondPro", serif;
+}
+.font-rainsans {
+  font-family: "RainSansVar", sans-serif;
+}
