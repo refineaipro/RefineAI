@@ -27,26 +27,37 @@ export default function JoinWaitlist() {
   };
 
   return (
-    <section className="min-h-screen w-full flex items-center justify-center bg-black relative px-4">
-
+    <section
+      className="
+        min-h-screen w-full 
+        flex flex-col items-center 
+        justify-start 
+        bg-black relative px-4
+        pt-24 md:pt-32
+      "
+    >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black/90" />
 
       {/* Glow circles */}
-      <div className="absolute top-32 left-20 w-60 h-60 bg-blue-500/20 blur-3xl rounded-full" />
-      <div className="absolute bottom-20 right-32 w-72 h-72 bg-blue-300/10 blur-3xl rounded-full" />
+      <div className="absolute top-20 left-10 w-56 h-56 bg-blue-500/20 blur-3xl rounded-full" />
+      <div className="absolute bottom-10 right-10 w-72 h-72 bg-blue-300/10 blur-3xl rounded-full" />
 
       {/* FORM CARD */}
-      <div className="relative z-10 max-w-md w-full p-10 rounded-3xl 
-                      bg-white/5 backdrop-blur-xl border border-white/10 
-                      shadow-xl">
-
+      <div
+        className="
+          relative z-10 max-w-md w-full 
+          p-8 md:p-10 
+          rounded-3xl 
+          bg-white/5 backdrop-blur-xl border border-white/10 
+          shadow-2xl
+        "
+      >
         <h1 className="text-center text-4xl font-heading text-white mb-8">
           Join the Waitlist
         </h1>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-
           <input
             type="text"
             placeholder="Your Name"
@@ -72,7 +83,7 @@ export default function JoinWaitlist() {
           {/* NEON GRADIENT ANIMATED BUTTON */}
           <button
             type="submit"
-            className="neon-btn w-full py-4 text-white font-semibold text-lg bg-black rounded-xl"
+            className="neon-btn w-full py-4 text-white font-semibold text-lg rounded-xl"
           >
             Join
           </button>
