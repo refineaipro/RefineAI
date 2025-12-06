@@ -1,71 +1,87 @@
 "use client";
+
 import { useState } from "react";
 
 export default function JoinWaitlist() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [success, setSuccess] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("");
 
-  async function handleSubmit(e: any) {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    setLoading(true);
+    setStatus("Submitting...");
 
-    await fetch(
-      "https://script.google.com/macros/s/AKfycbwFKtKZ-hl5crltvQu2O_YGHndtpJ6rPF9oaItSQF1bqxmnyslYhWTAqEn52YTsrZxR/exec",
-      {
+    try {
+      await fetch("YOUR_GOOGLE_SCRIPT_URL_HERE", {
         method: "POST",
+        mode: "no-cors",
         body: JSON.stringify({ name, email }),
-      }
-    );
+      });
 
-    setLoading(false);
-    setSuccess(true);
-    setName("");
-    setEmail("");
-  }
+      setStatus("Joined successfully!");
+      setName("");
+      setEmail("");
+    } catch (error) {
+      setStatus("Something went wrong. Try again.");
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center px-6">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white/10 p-10 rounded-2xl w-full max-w-md backdrop-blur-xl"
-      >
-        <h1 className="text-3xl font-heading mb-6 text-center">
+    <section className="min-h-screen w-full flex items-center justify-center bg-black relative px-4">
+
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black/90" />
+
+      {/* Glow circles */}
+      <div className="absolute top-32 left-20 w-60 h-60 bg-blue-500/20 blur-3xl rounded-full" />
+      <div className="absolute bottom-20 right-32 w-72 h-72 bg-blue-300/10 blur-3xl rounded-full" />
+
+      {/* FORM CARD */}
+      <div className="relative z-10 max-w-md w-full p-10 rounded-3xl 
+                      bg-white/5 backdrop-blur-xl border border-white/10 
+                      shadow-xl">
+
+        <h1 className="text-center text-4xl font-heading text-white mb-8">
           Join the Waitlist
         </h1>
 
-        <input
-          type="text"
-          placeholder="Your Name"
-          required
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="w-full mb-4 p-3 rounded-md text-black"
-        />
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
 
-        <input
-          type="email"
-          placeholder="Your Email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full mb-4 p-3 rounded-md text-black"
-        />
+          <input
+            type="text"
+            placeholder="Your Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            className="px-5 py-4 rounded-xl bg-white/90 text-black 
+                       focus:ring-2 focus:ring-blue-400 outline-none 
+                       shadow-md"
+          />
 
-        <button
-          type="submit"
-          className="w-full bg-white text-black py-3 rounded-md font-semibold hover:scale-105 transition"
-        >
-          {loading ? "Submitting..." : "Join"}
-        </button>
+          <input
+            type="email"
+            placeholder="Your Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="px-5 py-4 rounded-xl bg-white/90 text-black 
+                       focus:ring-2 focus:ring-blue-400 outline-none 
+                       shadow-md"
+          />
 
-        {success && (
-          <p className="text-green-400 mt-4 text-center">
-            You’re added to the waitlist!
-          </p>
+          {/* NEON GRADIENT ANIMATED BUTTON */}
+          <button
+            type="submit"
+            className="neon-btn w-full py-4 text-white font-semibold text-lg bg-black rounded-xl"
+          >
+            Join
+          </button>
+        </form>
+
+        {status && (
+          <p className="text-center text-sm text-gray-300 mt-4">{status}</p>
         )}
-      </form>
-    </div>
+      </div>
+    </section>
   );
 }

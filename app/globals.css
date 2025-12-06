@@ -84,3 +84,43 @@ body { background: black; color: white; }
 .font-rainsans {
   font-family: "RainSansVar", sans-serif;
 }
+
+.neon-btn {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.neon-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  padding: 2px;
+  background: linear-gradient(90deg, #ff00e6, #4d00ff, #00c3ff);
+  background-size: 200% 200%;
+  animation: neonMove 3s linear infinite;
+  -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+
+@keyframes neonMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.neon-btn:hover {
+  box-shadow: 0 0 20px #ff00e6, 0 0 40px #4d00ff, 0 0 60px #00c3ff;
+  transition: 0.2s ease-out;
+}
+

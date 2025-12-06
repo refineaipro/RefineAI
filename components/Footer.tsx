@@ -7,8 +7,8 @@ export default function Footer() {
         <div>
           <h2 className="text-3xl font-bold">Refine AI</h2>
           <p className="text-gray-400 mt-4">
-            500 W 14TH ST<br />
-            Richmond, VA 23224
+            Richmond<br />
+            Virginia, United States
           </p>
 
           <div className="flex gap-4 mt-6">
@@ -41,7 +41,7 @@ export default function Footer() {
         {/* Column 4 */}
         <div>
           <h3 className="text-gray-500 mb-3">Support</h3>
-          <p className="text-gray-300">support@refine.ai</p>
+          <p className="text-gray-300">support@refineai.pro</p>
         </div>
 
       </div>
