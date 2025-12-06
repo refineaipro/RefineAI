@@ -21,7 +21,8 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen w-full flex items-center justify-center text-center overflow-hidden font-body">
+    <section className="relative min-h-screen w-full pt-10 md:pt-20 text-center overflow-hidden font-body">
+
 
       {/* Background Waves (STATIC) */}
       <img
