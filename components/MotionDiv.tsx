@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import type { MotionProps } from "framer-motion";
 import type { HTMLAttributes } from "react";
 
-export type MotionDivProps = HTMLAttributes<HTMLDivElement> & MotionProps;
+export type MotionDivProps = HTMLAttributes<HTMLDivElement> & {
+  children?: React.ReactNode;
+};
 
-export const MotionDiv = motion<HTMLDivElement>;
+export const MotionDiv = motion.div as React.FC<MotionDivProps>;

@@ -29,6 +29,7 @@ export default function Testimonials() {
   return (
     <section className="w-full bg-black py-20">
       <div className="max-w-7xl mx-auto px-6">
+
         <h2 className="text-4xl font-garamond text-white mb-10">
           What Professionals Say
         </h2>
@@ -54,6 +55,7 @@ export default function Testimonials() {
             </MotionDiv>
           ))}
         </div>
+
       </div>
     </section>
   );
