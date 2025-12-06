@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import type { HTMLMotionProps } from "framer-motion";
+import { MotionDiv } from "./MotionDiv";
 
 export default function Testimonials() {
   const data = [
@@ -36,8 +35,7 @@ export default function Testimonials() {
 
         <div className="flex gap-8 overflow-x-auto no-scrollbar pb-4">
           {data.map((item, idx) => (
-            <motion.div
-              {...({} as HTMLMotionProps<"div">)}
+            <MotionDiv
               key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -45,17 +43,15 @@ export default function Testimonials() {
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               className="min-w-[330px] md:min-w-[380px] bg-white/5 border border-white/10 rounded-2xl p-7 backdrop-blur-xl"
             >
-              {/* Name + Role */}
               <div className="mb-4">
                 <h3 className="text-xl font-garamond text-white">{item.name}</h3>
                 <p className="text-sm text-gray-300">{item.role}</p>
               </div>
 
-              {/* Testimonial */}
               <p className="text-gray-200 leading-relaxed font-rainsans">
                 {item.text}
               </p>
-            </motion.div>
+            </MotionDiv>
           ))}
         </div>
       </div>
