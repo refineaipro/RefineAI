@@ -50,7 +50,6 @@ export default function Hero() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.6 }}
           >
-            {/* actual styled text inside normal span */}
             <span className="text-6xl md:text-7xl font-heading text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-pink-400">
               {rotatingWords[index]}
             </span>
@@ -58,9 +57,12 @@ export default function Hero() {
         </div>
 
         {/* CTA */}
-        <button className="mt-10 px-10 py-4 bg-white text-black rounded-full text-xl font-semibold hover:scale-105 transition font-body">
+        <a
+          href="/join-waitlist"
+          className="mt-10 px-10 py-4 bg-white text-black rounded-full text-xl font-semibold hover:scale-105 transition font-body"
+        >
           Join the Waitlist
-        </button>
+        </a>
       </div>
     </section>
   );
