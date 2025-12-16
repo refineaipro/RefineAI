@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import ProofSection from "@/components/ProofSection";
 import FounderNote from "@/components/FounderNote";
 import TrustedBy from "@/components/TrustedBy";
+import HomeCTA from "@/components/HomeCTA";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <ProofSection />
       <FounderNote />
       <TrustedBy />
+      <HomeCTA />
     </main>
   );
 }
