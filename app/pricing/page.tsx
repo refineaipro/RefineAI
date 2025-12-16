@@ -122,6 +122,85 @@ export default function PricingPage() {
         </div>
       </section>
 
+            {/* Add-ons Section */}
+      <section className="max-w-6xl mx-auto px-6 pb-32">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-medium">
+            Optional expert add-ons
+          </h2>
+          <p className="mt-4 text-gray-400">
+            Extra support if you want deeper, personalized guidance.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-10">
+
+          {/* Resume Consultation */}
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 transition hover:border-white/20">
+            <h3 className="text-xl font-medium">
+              Resume Consultation & Makeover
+            </h3>
+
+            <p className="mt-4 text-gray-400">
+              A detailed resume review with actionable feedback and improvements
+              tailored to your target roles.
+            </p>
+
+            <div className="mt-6 flex items-center justify-between">
+              <span className="text-lg">$30</span>
+              <button className="px-5 py-2 rounded-full bg-white text-black text-sm font-medium hover:opacity-90 transition">
+                Add
+              </button>
+            </div>
+          </div>
+
+          {/* LinkedIn Makeover */}
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 transition hover:border-white/20">
+            <h3 className="text-xl font-medium">
+              LinkedIn Makeover
+            </h3>
+
+            <p className="mt-4 text-gray-400">
+              Profile optimization to improve visibility, recruiter reach,
+              and alignment with your career goals.
+            </p>
+
+            <div className="mt-6 flex items-center justify-between">
+              <span className="text-lg">$30</span>
+              <button className="px-5 py-2 rounded-full bg-white text-black text-sm font-medium hover:opacity-90 transition">
+                Add
+              </button>
+            </div>
+          </div>
+
+          {/* Talent Advice */}
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 transition hover:border-white/20">
+            <h3 className="text-xl font-medium">
+              Talent Advice with Professionals
+            </h3>
+
+            <p className="mt-4 text-gray-400">
+              One-on-one guidance from experienced professionals to help you
+              navigate decisions, interviews, and career strategy.
+            </p>
+
+            <div className="mt-6 flex items-center justify-between">
+              <span className="text-lg">$30</span>
+              <button className="px-5 py-2 rounded-full bg-white text-black text-sm font-medium hover:opacity-90 transition">
+                Add
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Footnote */}
+        <p className="mt-12 text-center text-sm text-gray-500">
+          Add-ons are optional and can be selected independently of your plan.
+        </p>
+      </section>
+
+
     </div>
   );
 }
