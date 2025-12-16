@@ -1,14 +1,12 @@
 import Hero from "@/components/Hero";
-import ScrollStory from "@/components/ScrollStory";
 import TrustedBy from "@/components/TrustedBy";
-import PricingSection from "@/components/pricing";
+import ProofSection from "@/components/ProofSection";
 
 export default function Home() {
   return (
     <main className="bg-black w-full min-h-screen">
       <Hero />
-      <ScrollStory />
-      <PricingSection />
+      <ProofSection />
       <TrustedBy />
     </main>
   );
