@@ -42,7 +42,7 @@ export default function Footer() {
       {/* Brand Outline */}
       <div className="flex justify-center leading-none pb-12">
         <h1 className="brand-outline select-none">
-          RefineAI
+          refineAI
         </h1>
       </div>
 
