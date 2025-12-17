@@ -10,7 +10,7 @@ export default function Footer() {
           <h2 className="text-3xl font-bold">Refine AI</h2>
           <p className="text-gray-400 mt-4">
             Washington DC<br />
-            District of Columbia, United States
+            20005, United States
           </p>
         </div>
 
