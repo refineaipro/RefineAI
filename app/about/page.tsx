@@ -1,92 +1,53 @@
 export default function CompanyPage() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      
-      {/* Hero */}
-      <section className="max-w-5xl mx-auto px-6 pt-28 pb-20 text-center">
-        <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">
-          Building the future of job search with AI
+    <div className="min-h-screen bg-black flex items-center justify-center px-6">
+
+      {/* Letter Card */}
+      <div className="w-full max-w-3xl bg-white text-black rounded-2xl shadow-xl px-10 py-12">
+
+        {/* Letter Content */}
+        <h1 className="text-3xl font-semibold">
+          Dear Fellow Job Seeker,
         </h1>
-        <p className="mt-6 text-gray-400 text-lg max-w-3xl mx-auto">
-          Refine AI exists to remove friction, confusion, and unfairness from the hiring process by putting powerful AI tools directly in the hands of job seekers.
-        </p>
-      </section>
 
-      {/* Mission */}
-      <section className="max-w-5xl mx-auto px-6 py-16 border-t border-white/10">
-        <h2 className="text-2xl font-semibold">Our Mission</h2>
-        <p className="mt-4 text-gray-400 leading-relaxed">
-          The job search process today is broken. Candidates spend countless hours tailoring resumes, tracking applications, and guessing what recruiters want.
-          <br /><br />
-          Our mission is to make job search intelligent, transparent, and efficient using AI that works for people, not against them.
-        </p>
-      </section>
-
-      {/* What We’re Building */}
-      <section className="max-w-5xl mx-auto px-6 py-16 border-t border-white/10">
-        <h2 className="text-2xl font-semibold">What We’re Building</h2>
-        <ul className="mt-6 space-y-4 text-gray-400">
-          <li>• AI-powered resume optimization tailored to each job</li>
-          <li>• ATS compatibility scoring and improvement insights</li>
-          <li>• Smart job tracking and application management</li>
-          <li>• Personalized recommendations to improve hiring outcomes</li>
-        </ul>
-      </section>
-
-      {/* Values */}
-      <section className="max-w-5xl mx-auto px-6 py-16 border-t border-white/10">
-        <h2 className="text-2xl font-semibold">Our Values</h2>
-
-        <div className="mt-8 grid md:grid-cols-2 gap-8">
-          <div>
-            <h3 className="font-medium">User-first thinking</h3>
-            <p className="mt-2 text-gray-400">
-              Every feature is built to solve real problems faced by job seekers.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-medium">Clarity over complexity</h3>
-            <p className="mt-2 text-gray-400">
-              We believe powerful technology should feel simple and intuitive.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-medium">Responsible AI</h3>
-            <p className="mt-2 text-gray-400">
-              Our models are designed to assist decision-making, not replace human judgment.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-medium">Continuous improvement</h3>
-            <p className="mt-2 text-gray-400">
-              We iterate fast, learn from users, and improve relentlessly.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact CTA */}
-      <section className="max-w-5xl mx-auto px-6 py-20 border-t border-white/10 text-center">
-        <h2 className="text-3xl font-semibold">
-          Want to learn more or work with us?
-        </h2>
-        <p className="mt-4 text-gray-400">
-          We are always open to conversations, partnerships, and feedback.
+        <p className="mt-6 text-gray-700 leading-relaxed">
+          Refine AI began the same way many job searches do, with uncertainty,
+          countless applications, and more questions than answers.
         </p>
 
-        <div className="mt-8">
+        <p className="mt-4 text-gray-700 leading-relaxed">
+          We have been through the process ourselves. The resume edits, the
+          tracking spreadsheets, the guessing game of what actually works.
+          Over time, we learned what moves the needle and what simply wastes
+          energy.
+        </p>
+
+        <p className="mt-4 text-gray-700 leading-relaxed">
+          Refine AI exists to help you focus on the right things while we handle
+          the rest. We use AI where it truly helps, and human judgment where it
+          matters most.
+        </p>
+
+        <p className="mt-4 text-gray-700 leading-relaxed">
+          No shortcuts. No false promises. Just a clearer, more intentional way
+          to move forward.
+        </p>
+
+        {/* CTA */}
+        <div className="mt-10">
           <a
-            href="/contact"
-            className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-semibold hover:opacity-90 transition"
+            href="https://calendly.com/hi-refineai/30min"
+            className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-black text-white font-medium hover:opacity-90 transition"
           >
-            Contact Us
+            Let’s talk
           </a>
-        </div>
-      </section>
 
+          <p className="mt-3 text-sm text-gray-500">
+            No pressure. Just a conversation.
+          </p>
+        </div>
+
+      </div>
     </div>
   );
 }
