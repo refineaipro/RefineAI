@@ -37,6 +37,9 @@ export default function Navbar() {
             <Link href="/about" className="hover:text-white transition">
               Company
             </Link>
+            <Link href="/freetools" className="hover:text-white transition">
+              Free Tools
+            </Link>
           </div>
 
           {/* CTA moved inward */}

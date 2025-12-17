@@ -137,3 +137,40 @@ body { background: black; color: white; }
   animation: marquee 50s linear infinite;
 }
 
+@keyframes outlineGlowCycle {
+  0% {
+    -webkit-text-stroke-color: #38bdf8; /* blue */
+    text-shadow: 0 0 18px rgba(56,189,248,0.9);
+  }
+  25% {
+    -webkit-text-stroke-color: #a78bfa; /* violet */
+    text-shadow: 0 0 18px rgba(167,139,250,0.9);
+  }
+  50% {
+    -webkit-text-stroke-color: #f87171; /* red */
+    text-shadow: 0 0 18px rgba(248,113,113,0.9);
+  }
+  75% {
+    -webkit-text-stroke-color: #4ade80; /* green */
+    text-shadow: 0 0 18px rgba(74,222,128,0.9);
+  }
+  100% {
+    -webkit-text-stroke-color: #38bdf8; /* blue */
+    text-shadow: 0 0 18px rgba(56,189,248,0.9);
+  }
+}
+
+.brand-outline {
+  font-size: 18vw;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255,255,255,0.35);
+  text-shadow: 0 0 12px rgba(255,255,255,0.15);
+  transition: -webkit-text-stroke 300ms ease, text-shadow 300ms ease;
+}
+
+.brand-outline:hover {
+  animation: outlineGlowCycle 4s linear infinite;
+  -webkit-text-stroke-width: 2.5px;
+}

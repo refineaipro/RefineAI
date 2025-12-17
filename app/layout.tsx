@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
         <Navbar />
 
         {/* Main content offset for fixed navbar */}
-        <main className="pt-24">
+        <main className="pt-20">
           {children}
         </main>
 
