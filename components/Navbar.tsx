@@ -3,18 +3,25 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { Space_Grotesk } from "next/font/google";
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-md">
+    <header
+      className={`fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-md ${spaceGrotesk.className}`}
+    >
       <nav className="mx-auto max-w-7xl px-6 py-4 flex justify-center">
         
-        {/* Inner container with tighter width */}
         <div className="flex items-center w-full max-w-5xl relative">
           
-          {/* Logo moved inward */}
+          {/* Logo */}
           <Link href="/" className="shrink-0 ml-20">
             <Image
               src="/refineailogo.jpg"
@@ -26,11 +33,8 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* Center Links (UNCHANGED) */}
-          <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-10 text-base font-medium tracking-wide text-gray-200">
-            <Link href="/solutions" className="hover:text-white transition">
-              Solutions
-            </Link>
+          {/* Center Links */}
+          <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-10 text-[19px] font-medium tracking-wide text-gray-200">
             <Link href="/pricing" className="hover:text-white transition">
               Pricing
             </Link>
@@ -42,7 +46,7 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* CTA moved inward */}
+          {/* CTA */}
           <div className="ml-auto mr-20 hidden md:block">
             <Link
               href="/get-started"
