@@ -27,7 +27,8 @@ export default function FounderNote() {
         {active === 0 && (
           <div className="grid md:grid-cols-2 gap-16 items-center transition-opacity duration-300">
             <div className="relative flex justify-center md:justify-start">
-              <div className="relative w-72 h-96 rounded-3xl overflow-hidden grayscale">
+              <div className="relative w-72 h-96 rounded-3xl overflow-hidden grayscale hover:grayscale-0 transition duration-500 ease-out">
+
                 <Image
                   src="/founder-placeholder2.JPG"
                   alt="Pranav Sai Ganta"
