@@ -52,7 +52,7 @@ export default function Navbar() {
           {/* CTA */}
           <div className="ml-auto mr-20 hidden md:block">
             <Link
-              href="/get-started"
+              href="/join-waitlist"
               className="px-6 py-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-semibold hover:opacity-90 transition"
             >
               Get Started
