@@ -3,7 +3,7 @@ export default function PricingPage() {
     <div className="min-h-screen bg-black text-white">
 
       {/* Header */}
-      <section className="max-w-6xl mx-auto px-6 pt-20 pb-20 text-center">
+      <section className="max-w-6xl mx-auto px-6 pt-12 pb-20 text-center">
         <h1 className="text-4xl md:text-5xl font-semibold">
           Choose a Plan That Fits Your Career Goals
         </h1>
