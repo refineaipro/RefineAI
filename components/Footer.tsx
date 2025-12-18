@@ -35,7 +35,7 @@ export default function Footer() {
 
         <div>
           <h3 className="text-gray-500 mb-3">Support</h3>
-          <p className="text-gray-300">support@refineai.pro</p>
+          <p className="text-gray-300">hi@refineai.pro</p>
         </div>
       </div>
 
