@@ -5,49 +5,63 @@ export default function ProofSection() {
         
         {/* Heading */}
         <h2 className="text-4xl md:text-5xl font-semibold">
-          Un-deniable proof for you
+          Proof that preparation changes outcomes
         </h2>
 
         <p className="mt-6 text-gray-400 text-lg max-w-3xl mx-auto">
-          70% of our customers receive a refund because they land their dream job
-          before their credits are used. We celebrate wins by refunding leftover credits.
+          Real hiring data shows that structured, tailored applications
+          dramatically improve interview rates and outcomes, especially
+          for international candidates.
         </p>
 
         {/* Cards */}
-        <div className="mt-20 grid md:grid-cols-3 gap-10">
+        <div className="mt-14 grid md:grid-cols-3 gap-8">
           
           {/* Card 1 */}
           <div className="rounded-3xl bg-white text-black p-10 shadow-xl">
-            <p className="text-6xl font-bold text-green-600">93%</p>
+            <p className="text-6xl font-bold text-green-600">2.1×</p>
             <h3 className="mt-4 text-xl font-semibold">
-              Landed jobs in 3 months
+              More interviews with tailored resumes
             </h3>
             <p className="mt-3 text-gray-600">
-              47% from our applications, 46% from personal networking
-              and individual efforts.
+              Tailored resumes convert at <span className="font-medium">5.75%</span> 
+              compared to <span className="font-medium">2.68%</span> for generic ones,
+              resulting in nearly double the interviews.
+            </p>
+            <p className="mt-4 text-sm text-gray-400">
+              Source: Huntr analysis of 1.39M applications
             </p>
           </div>
 
           {/* Card 2 */}
           <div className="rounded-3xl bg-white text-black p-10 shadow-xl">
-            <p className="text-6xl font-bold text-green-600">40%</p>
+            <p className="text-6xl font-bold text-green-600">2×</p>
             <h3 className="mt-4 text-xl font-semibold">
-              Less time spent in job search
+              More applications, fewer offers
             </h3>
             <p className="mt-3 text-gray-600">
-              We reduce the average five-month job search to one to three months.
+              International candidates submit nearly twice as many applications
+              but receive approximately <span className="font-medium">30% fewer offers</span>
+              compared to domestic applicants.
+            </p>
+            <p className="mt-4 text-sm text-gray-400">
+              Source: International Student Employment Trends Report 2025
             </p>
           </div>
 
           {/* Card 3 */}
           <div className="rounded-3xl bg-white text-black p-10 shadow-xl">
-            <p className="text-6xl font-bold text-green-600">200x</p>
+            <p className="text-6xl font-bold text-green-600">$80K+</p>
             <h3 className="mt-4 text-xl font-semibold">
-              Return on Investment
+              Strong outcomes once hired
             </h3>
             <p className="mt-3 text-gray-600">
-              Saved weeks often translate to an extra $20K,
-              and multiple offers can lead to a $30K salary increase.
+              International graduates who secure roles earn an average starting
+              salary of over <span className="font-medium">$80,000</span>,
+              reflecting strong performance in high-skill positions.
+            </p>
+            <p className="mt-4 text-sm text-gray-400">
+              Source: International Student Employment Trends Report 2025
             </p>
           </div>
 
