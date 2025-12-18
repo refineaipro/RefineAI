@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function FreeToolsPage() {
   return (
-    <section className="min-h-screen bg-black text-white py-28">
+    <section className="min-h-screen bg-black text-white py-16">
       <div className="max-w-6xl mx-auto px-6">
 
         {/* Tools Grid */}

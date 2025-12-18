@@ -3,7 +3,7 @@ export default function FeaturesPage() {
     <div className="min-h-screen bg-black text-white">
 
       {/* Hero */}
-      <section className="max-w-5xl mx-auto px-6 pt-28 pb-20 text-center">
+      <section className="max-w-5xl mx-auto px-6 pt-16 pb-20 text-center">
         <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">
           Features built for focused job search
         </h1>
