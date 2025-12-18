@@ -34,7 +34,10 @@ export default function Navbar() {
           </Link>
 
           {/* Center Links */}
-          <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-10 text-[19px] font-medium tracking-wide text-gray-200">
+          <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-10 text-[17px] font-medium tracking-wide text-gray-200">
+            <Link href="/features" className="hover:text-white transition">
+              Features
+            </Link>
             <Link href="/pricing" className="hover:text-white transition">
               Pricing
             </Link>
