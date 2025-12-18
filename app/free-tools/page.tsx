@@ -5,16 +5,6 @@ export default function FreeToolsPage() {
     <section className="min-h-screen bg-black text-white py-28">
       <div className="max-w-6xl mx-auto px-6">
 
-        {/* Header */}
-        <h1 className="text-4xl font-semibold text-center">
-          Free Tools
-        </h1>
-
-        <p className="mt-4 text-gray-400 text-center max-w-2xl mx-auto">
-          Practical tools to help you stand out, apply with intent,
-          and communicate like a human — not a bot.
-        </p>
-
         {/* Tools Grid */}
         <div className="mt-20 grid md:grid-cols-3 gap-8">
 
