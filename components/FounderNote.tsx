@@ -29,7 +29,7 @@ export default function FounderNote() {
             <div className="relative flex justify-center md:justify-start">
               <div className="relative w-72 h-96 rounded-3xl overflow-hidden grayscale">
                 <Image
-                  src="/founder-placeholder2.jpg"
+                  src="/founder-placeholder2.JPG"
                   alt="Pranav Sai Ganta"
                   fill
                   className="object-cover"
