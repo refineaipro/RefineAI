@@ -64,7 +64,7 @@ export default function FounderNote() {
           <p className="text-white">Pranav Sai Ganta</p>
 
                   <a
-          href="https://www.linkedin.com/in/pranavsai/"
+          href="https://www.linkedin.com/in/pranavganta/"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 text-gray-500 
