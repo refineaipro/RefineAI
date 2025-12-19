@@ -25,14 +25,14 @@ export default function LoginPage() {
 
         {/* RIGHT: Login Card */}
         <div className="w-full max-w-md mx-auto md:-translate-y-6">
-          <div className="bg-neutral-900 border border-white/10 rounded-xl shadow-[0_0_40px_rgba(0,0,0,0.6)] p-6">
+          <div className="bg-white border border-black/10 rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.25)] p-6">
             
             {/* Header */}
             <div className="mb-6">
-              <h2 className="text-2xl font-semibold text-white">
+              <h2 className="text-2xl font-semibold text-black">
                 Welcome back
               </h2>
-              <p className="mt-2 text-sm text-gray-400">
+              <p className="mt-2 text-sm text-gray-600">
                 Log in to your RefineAI account
               </p>
             </div>
@@ -42,7 +42,7 @@ export default function LoginPage() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm text-gray-300 mb-2"
+                  className="block text-sm font-semibold text-gray-800 mb-2"
                 >
                   Email
                 </label>
@@ -51,14 +51,14 @@ export default function LoginPage() {
                   type="email"
                   required
                   placeholder="you@example.com"
-                  className="w-full rounded-lg bg-black border border-white/10 px-4 py-2 text-white placeholder:text-gray-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400"
+                  className="w-full rounded-lg bg-gray-50 border border-gray-300 px-4 py-2 text-black placeholder:text-gray-500 placeholder:font-semibold focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="password"
-                  className="block text-sm text-gray-300 mb-2"
+                  className="block text-sm font-semibold text-gray-800 mb-2"
                 >
                   Password
                 </label>
@@ -67,14 +67,14 @@ export default function LoginPage() {
                   type="password"
                   required
                   placeholder="••••••••"
-                  className="w-full rounded-lg bg-black border border-white/10 px-4 py-2 text-white placeholder:text-gray-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400"
+                  className="w-full rounded-lg bg-gray-50 border border-gray-300 px-4 py-2 text-black placeholder:text-gray-500 placeholder:font-semibold focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400"
                 />
               </div>
 
               <div className="flex justify-end">
                 <Link
                   href="#"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm font-semibold text-gray-600 hover:text-black transition"
                 >
                   Forgot password?
                 </Link>
@@ -82,7 +82,7 @@ export default function LoginPage() {
 
               <button
                 type="submit"
-                className="w-full mt-2 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500 px-4 py-2 text-sm font-medium text-black hover:brightness-110 transition shadow-[0_0_20px_rgba(56,189,248,0.35)]"
+                className="w-full mt-2 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500 px-4 py-2 text-sm font-semibold text-black hover:brightness-110 transition shadow-[0_0_20px_rgba(56,189,248,0.35)]"
               >
                 Log in
               </button>
@@ -90,9 +90,9 @@ export default function LoginPage() {
 
             {/* Divider */}
             <div className="my-6 flex items-center gap-4">
-              <div className="h-px flex-1 bg-white/10" />
-              <span className="text-xs text-gray-500">or</span>
-              <div className="h-px flex-1 bg-white/10" />
+              <div className="h-px flex-1 bg-gray-300" />
+              <span className="text-xs font-semibold text-gray-500">or</span>
+              <div className="h-px flex-1 bg-gray-300" />
             </div>
 
             {/* Social Placeholder Buttons */}
@@ -100,7 +100,7 @@ export default function LoginPage() {
               <button
                 type="button"
                 disabled
-                className="w-full rounded-lg border border-white/10 px-4 py-2 text-sm text-gray-400 cursor-not-allowed"
+                className="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700 cursor-not-allowed"
               >
                 Continue with Google
               </button>
@@ -108,18 +108,18 @@ export default function LoginPage() {
               <button
                 type="button"
                 disabled
-                className="w-full rounded-lg border border-white/10 px-4 py-2 text-sm text-gray-400 cursor-not-allowed"
+                className="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700 cursor-not-allowed"
               >
                 Continue with LinkedIn
               </button>
             </div>
 
             {/* Footer */}
-            <p className="mt-6 text-sm text-gray-400 text-center">
+            <p className="mt-6 text-sm font-semibold text-gray-700 text-center">
               Don’t have an account?{" "}
               <Link
                 href="/signup"
-                className="text-white hover:underline"
+                className="text-black font-bold hover:underline"
               >
                 Get started
               </Link>
