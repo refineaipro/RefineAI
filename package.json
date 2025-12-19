@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.89.0",
     "autoprefixer": "^10.4.22",
     "framer-motion": "10.16.4",
     "next": "14.1.0",
