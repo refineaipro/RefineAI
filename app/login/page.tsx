@@ -40,7 +40,7 @@ export default function LoginPage() {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${window.location.origin}/dashboard`,
+        redirectTo: `${window.location.origin}/auth/callback`,
       },
     });
 
@@ -124,7 +124,6 @@ export default function LoginPage() {
               </button>
             </form>
 
-            {/* Divider */}
             <div className="my-6 flex items-center gap-4">
               <div className="h-px flex-1 bg-gray-300" />
               <span className="text-xs font-semibold text-gray-500">or</span>
