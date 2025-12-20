@@ -13,6 +13,7 @@ export default function LoginPage() {
 
   const router = useRouter();
 
+  // Email + password login
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -29,15 +30,30 @@ export default function LoginPage() {
       return;
     }
 
-    // ✅ Redirect after successful login
     router.push("/dashboard");
+  };
+
+  // Google OAuth login
+  const handleGoogleLogin = async () => {
+    setError(null);
+
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}/dashboard`,
+      },
+    });
+
+    if (error) {
+      setError(error.message);
+    }
   };
 
   return (
     <main className="h-screen overflow-hidden bg-black bg-[radial-gradient(ellipse_at_top,_rgba(59,130,246,0.08),_transparent_60%)] flex items-center justify-center px-6 py-8">
       <div className="w-full max-w-6xl grid md:grid-cols-2 gap-16 items-center">
         
-        {/* LEFT: Brand */}
+        {/* LEFT */}
         <div className="hidden md:block">
           <h1 className="text-3xl font-semibold tracking-tight text-white">
             RefineAI
@@ -51,11 +67,10 @@ export default function LoginPage() {
           </p>
         </div>
 
-        {/* RIGHT: Login Card */}
+        {/* RIGHT */}
         <div className="w-full max-w-md mx-auto md:-translate-y-6">
           <div className="bg-white border border-black/10 rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.25)] p-6">
             
-            {/* Header */}
             <div className="mb-6">
               <h2 className="text-2xl font-semibold text-black">
                 Welcome back
@@ -65,7 +80,6 @@ export default function LoginPage() {
               </p>
             </div>
 
-            {/* Form */}
             <form onSubmit={handleLogin} className="space-y-4">
               <div>
                 <label className="block text-sm font-semibold text-gray-800 mb-2">
@@ -117,26 +131,17 @@ export default function LoginPage() {
               <div className="h-px flex-1 bg-gray-300" />
             </div>
 
-            {/* Social buttons (disabled for now) */}
+            {/* Google Sign In */}
             <div className="space-y-3">
               <button
                 type="button"
-                disabled
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700 cursor-not-allowed"
+                onClick={handleGoogleLogin}
+                className="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition"
               >
                 Continue with Google
               </button>
-
-              <button
-                type="button"
-                disabled
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700 cursor-not-allowed"
-              >
-                Continue with LinkedIn
-              </button>
             </div>
 
-            {/* Footer */}
             <p className="mt-6 text-sm font-semibold text-gray-700 text-center">
               Don’t have an account?{" "}
               <Link href="/signup" className="text-black font-bold hover:underline">
