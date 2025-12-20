@@ -49,6 +49,22 @@ export default function LoginPage() {
     }
   };
 
+  // GitHub OAuth login
+  const handleGithubLogin = async () => {
+    setError(null);
+
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "github",
+      options: {
+        redirectTo: `${window.location.origin}/auth/callback`,
+      },
+    });
+
+    if (error) {
+      setError(error.message);
+    }
+  };
+
   return (
     <main className="h-screen overflow-hidden bg-black bg-[radial-gradient(ellipse_at_top,_rgba(59,130,246,0.08),_transparent_60%)] flex items-center justify-center px-6 py-8">
       <div className="w-full max-w-6xl grid md:grid-cols-2 gap-16 items-center">
@@ -130,7 +146,7 @@ export default function LoginPage() {
               <div className="h-px flex-1 bg-gray-300" />
             </div>
 
-            {/* Google Sign In */}
+            {/* OAuth Buttons */}
             <div className="space-y-3">
               <button
                 type="button"
@@ -138,6 +154,14 @@ export default function LoginPage() {
                 className="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition"
               >
                 Continue with Google
+              </button>
+
+              <button
+                type="button"
+                onClick={handleGithubLogin}
+                className="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition"
+              >
+                Continue with GitHub
               </button>
             </div>
 
