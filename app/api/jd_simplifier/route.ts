@@ -73,7 +73,7 @@ Return JSON only in this format:
 {
   "summary": "1–2 sentence description of the role",
   "intent": "What the company actually wants this hire to deliver",
-  "experience": "Inferred seniority level in simple language",
+  "experience": "Inferred seniority level in simple language with number of years mentioned",
   "skills": ["Only clearly implied skills"],
   "reality": "One honest expectation or tradeoff"
 }
