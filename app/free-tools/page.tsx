@@ -28,6 +28,26 @@ export default function FreeToolsPage() {
             </p>
           </Link>
 
+          {/* JD Simplifier Card (ADDED) */}
+          <Link
+            href="/free-tools/jd_simplifier"
+            className="group rounded-3xl border border-white/10 
+            bg-white/5 p-8 hover:bg-white/10 transition"
+          >
+            <h3 className="text-xl font-medium">
+              JD Simplifier
+            </h3>
+
+            <p className="mt-3 text-gray-400 text-sm leading-relaxed">
+              Understand what a job description actually means,
+              without the corporate fluff.
+            </p>
+
+            <p className="mt-6 text-sm text-cyan-400 group-hover:underline">
+              Try tool →
+            </p>
+          </Link>
+
           {/* Placeholder for future tools */}
           <div className="rounded-3xl border border-white/10 
           bg-white/5 p-8 opacity-40">
