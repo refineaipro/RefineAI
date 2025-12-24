@@ -1,5 +1,6 @@
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 
@@ -8,24 +9,43 @@ const client = new OpenAI({
 });
 
 export async function POST(req: Request) {
+  let jd: string;
+
+  // 1️⃣ SAFE body parsing (CRITICAL)
   try {
-    const { jd } = await req.json();
+    const body = await req.json();
+    jd = body?.jd;
+  } catch {
+    return NextResponse.json(
+      { error: "Invalid request body" },
+      { status: 400 }
+    );
+  }
 
-    // Basic guard
-    if (!jd || jd.trim().length < 40) {
-      return NextResponse.json({
-        summary:
-          "This role appears to involve general responsibilities, but the description is too brief to show clear priorities.",
-        intent:
-          "They likely want someone flexible who can handle multiple tasks as needed.",
-        experience:
-          "The seniority level is not obvious, but some independent work is expected.",
-        skills: [],
-        reality:
-          "You’ll need to ask detailed questions to understand what the job really looks like day to day.",
-      });
-    }
+  if (!jd || typeof jd !== "string") {
+    return NextResponse.json(
+      { error: "JD missing or invalid" },
+      { status: 400 }
+    );
+  }
 
+  // Short JD fallback
+  if (jd.trim().length < 40) {
+    return NextResponse.json({
+      summary:
+        "This role involves general responsibilities, but the description is too brief to show clear priorities.",
+      intent:
+        "They likely want someone flexible who can support multiple tasks as needed.",
+      experience:
+        "The seniority level isn’t explicitly stated, but some independence is expected.",
+      skills: [],
+      reality:
+        "You’ll need to ask direct questions to understand expectations more clearly.",
+    });
+  }
+
+  try {
+    // 2️⃣ OPENAI CALL
     const completion = await client.chat.completions.create({
       model: "gpt-4o-mini",
       temperature: 0.35,
@@ -33,40 +53,29 @@ export async function POST(req: Request) {
         {
           role: "system",
           content: `
-You are an experienced hiring manager and career mentor.
+You are an experienced hiring manager.
 
-Your job is to decode job descriptions into honest, plain-English explanations.
+Decode job descriptions into honest, plain-English explanations.
 
-STRICT RULES:
-- NEVER say: "unclear", "hard to summarize", "not specified", or similar hedging phrases.
-- Infer intent even if details are vague.
-- Be concrete and practical, as if explaining to a friend.
-- Avoid corporate buzzwords and marketing language.
-- Vary wording across different job descriptions.
-- Do NOT give advice or encouragement.
-- Keep language simple and human.
-- Output ONLY valid JSON. No markdown. No extra text.
+Rules:
+- Never hedge or say information is unclear.
+- Infer intent even when vague.
+- Be concrete and practical.
+- Avoid buzzwords.
+- Output valid JSON only.
 `,
         },
         {
           role: "user",
           content: `
-Break down the job description below.
-
-Think carefully about:
-- What this person will actually do most days
-- Why the company is hiring this role
-- The level of responsibility implied
-- Any expectations hidden between the lines
-
-Return EXACT JSON in this format:
+Return JSON only in this format:
 
 {
-  "summary": "1–2 sentences explaining what this job mainly involves",
-  "intent": "What the company really expects this person to own or deliver",
-  "experience": "Inferred seniority level explained in simple language",
-  "skills": ["Only skills that are clearly implied or required"],
-  "reality": "One honest thing a candidate should be prepared for"
+  "summary": "1–2 sentence description of the role",
+  "intent": "What the company actually wants this hire to deliver",
+  "experience": "Inferred seniority level in simple language",
+  "skills": ["Only clearly implied skills"],
+  "reality": "One honest expectation or tradeoff"
 }
 
 Job Description:
@@ -76,14 +85,29 @@ ${jd}
       ],
     });
 
-    const rawText = completion.choices[0].message.content;
-    const parsed = JSON.parse(rawText || "{}");
+    const raw = completion.choices[0]?.message?.content;
+
+    if (!raw) {
+      throw new Error("Empty response from OpenAI");
+    }
+
+    // 3️⃣ SAFE JSON CLEANING (CRITICAL)
+    const cleaned = raw
+      .replace(/```json/g, "")
+      .replace(/```/g, "")
+      .trim();
+
+    const parsed = JSON.parse(cleaned);
 
     return NextResponse.json(parsed);
-  } catch (error: any) {
-    console.error("JD SIMPLIFIER API ERROR:", error.message);
+  } catch (err: any) {
+    console.error("JD SIMPLIFIER PROD ERROR:", err);
+
     return NextResponse.json(
-      { error: "Failed to analyze job description." },
+      {
+        error: "OpenAI failed in production",
+        message: err?.message,
+      },
       { status: 500 }
     );
   }
